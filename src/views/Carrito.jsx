@@ -21,11 +21,11 @@ const Carrito = () => {
                 <h2 className=''>Detalle del Pedido: </h2>
 
                 {cart?.map((pizza, index) => (
-                    <div className="" key={index}>
-                        <Row  className="d-flex aling-items-bottom ">
+                    <div  key={index}>
+                        <Row  className="d-flex align-items-center mt-2">
                             <Col md={6}>
                             <img src={pizza.img} alt={pizza.name} className="w-25"></img>
-                                <span className='pizza-carrito'>{ pizza.name }</span>
+                                <span>{ pizza.name }</span>
                             </Col>
                             <Col md={3}>
                             <h2>$ {(pizza.price * pizza.quantity).toLocaleString("es-CL")}</h2>
@@ -38,7 +38,6 @@ const Carrito = () => {
                                 </div>
                             </Col>
                             <hr />
-                           
                         </Row>
                     </div>
                 ))}
