@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
@@ -8,9 +10,10 @@ import Button from "react-bootstrap/Button";
 import { DataContext } from "../context/DataContext";
 
 const Carrito = () => {
-  const { cart, totalAcum, addItemCart, removeItemCart, upperLetter } =
-    useContext(DataContext);
+  const { cart, totalAcum, addItemCart, removeItemCart, upperLetter } =  useContext(DataContext);
 
+  const navigate = useNavigate();
+    
   return (
     <>
       <div className="container">
@@ -63,7 +66,10 @@ const Carrito = () => {
               </div>
             </>
           ) : (
-            <div className="text-center text-danger"><h2>No hay registros en el carrito.!!!!</h2></div>
+            <div >
+                <h2 className="text-center text-danger">No hay registros en el carrito.!!!!</h2>
+                <Button variant="success" className='mt-4' onClick={() => navigate(`/home`)}> ◀︎ Volver</Button>
+            </div>
           )}
         </div>
       </div>

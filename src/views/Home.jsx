@@ -30,7 +30,7 @@ const Home = () => {
                 <Card className="card-home">
                   <Card.Img variant="top" src={pizza.img} />
                   <Card.Body>
-                    <Card.Title>{upperLetter(pizza.name)} {pizza.id} </Card.Title>
+                    <Card.Title>{upperLetter(pizza.name)} </Card.Title>
                     <hr />
                       Ingredientes:
                       <ul>
