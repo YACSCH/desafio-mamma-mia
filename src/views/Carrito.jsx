@@ -22,18 +22,18 @@ const Carrito = () => {
 
                 {cart?.map((pizza, index) => (
                     <div className="" key={index}>
-                        <Row  className=" ">
-                            <Col md={8}>
+                        <Row  className="d-flex aling-items-bottom ">
+                            <Col md={6}>
                             <img src={pizza.img} alt={pizza.name} className="w-25"></img>
                                 <span className='pizza-carrito'>{ pizza.name }</span>
                             </Col>
-                            <Col md={2}>
+                            <Col md={3}>
                             <h2>$ {(pizza.price * pizza.quantity).toLocaleString("es-CL")}</h2>
                             </Col>
-                            <Col md={2}>
+                            <Col md={3}>
                                 <div className="carrito-buttons">
                                     <Button variant="primary" onClick={() => substractCart()} >➖</Button>
-                                    <span>{ pizza.quantity }</span>
+                                    <span> { pizza.quantity } </span>
                                     <Button variant="danger" onClick={() => addCart(pizza)}>➕</Button>
                                 </div>
                             </Col>
