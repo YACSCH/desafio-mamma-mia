@@ -2,7 +2,7 @@ import {  Routes, Route } from "react-router-dom";
 
 import  DataProvider  from "./context/DataContext";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/NavBar";
 
 import Carrito from "./views/Carrito";
 import Home from "./views/Home";

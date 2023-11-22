@@ -11,7 +11,7 @@ import { DataContext } from "../context/DataContext";
 
 const Carrito = () => {
 
-    const { cart, totalAcum, addCart, substractCart  } = useContext(DataContext);
+const { cart, totalAcum, addItemCart, removeItemCart, upperLetter  } = useContext(DataContext);
 
   return (
     <>
@@ -20,21 +20,21 @@ const Carrito = () => {
             <div className='mt-4'>
                 <h2 className=''>Detalle del Pedido: </h2>
 
-                {cart?.map((pizza, index) => (
-                    <div  key={index}>
+                {cart?.map((pizza) => (
+                    <div  key={pizza.id}>
                         <Row  className="d-flex align-items-center mt-2">
                             <Col md={6}>
                             <img src={pizza.img} alt={pizza.name} className="w-25"></img>
-                                <span>{ pizza.name }</span>
+                                <span> { upperLetter(pizza.name) } </span>
                             </Col>
                             <Col md={3}>
-                            <h2>$ {(pizza.price * pizza.quantity).toLocaleString("es-CL")}</h2>
+                            <h2 className='text-end'>$ {(pizza.price * pizza.quantity).toLocaleString("es-CL")}</h2>
                             </Col>
                             <Col md={3}>
                                 <div className="carrito-buttons">
-                                    <Button variant="primary" onClick={() => substractCart()} >➖</Button>
+                                    <Button variant="primary" onClick={() => removeItemCart(pizza.id)} >➖</Button>
                                     <span> { pizza.quantity } </span>
-                                    <Button variant="danger" onClick={() => addCart(pizza)}>➕</Button>
+                                    <Button variant="danger" onClick={() => addItemCart(pizza)}>➕</Button>
                                 </div>
                             </Col>
                             <hr />

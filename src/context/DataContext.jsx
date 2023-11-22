@@ -22,7 +22,8 @@ const DataProvider = ({ children }) => {
     pizzaList();
   }, []);
 
-  const addCart = (item) => {
+  const addItemCart = (item) => {
+    
     const isItemInCart = cart.find((i) => i.id === item.id);
 
     if (isItemInCart) {
@@ -35,17 +36,33 @@ const DataProvider = ({ children }) => {
       setCart((prev) => [...prev, { ...item, quantity: 1 }]);
     }
   };
-  
-  const substractCart = () => {
 
+  function removeItemCart(id) {
+
+    const itemIndex = cart.findIndex((item) => item.id === id);
+
+    if (itemIndex !== -1) {
+      const updatedCarrito = [...cart];
+
+      updatedCarrito[itemIndex].quantity--;
+      
+      if (updatedCarrito[itemIndex].quantity === 0) {
+        updatedCarrito.splice(itemIndex, 1);
+      }
+      setCart(updatedCarrito);
+    }
   }
-
-
 
   const totalAcum = cart.reduce(
     (total, pizza) => total + pizza.price * pizza.quantity,
     0
   );
+  const upperLetter = (name) => {
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  };
+
+
+
   return (
     <DataContext.Provider
       value={{
@@ -54,8 +71,9 @@ const DataProvider = ({ children }) => {
         setCart,
         totalAcum,
         isloading,
-        addCart,
-        substractCart
+        addItemCart,
+        removeItemCart,
+        upperLetter,
       }}
     >
       {children}

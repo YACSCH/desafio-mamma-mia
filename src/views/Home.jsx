@@ -12,13 +12,11 @@ import { DataContext } from "../context/DataContext";
 
 const Home = () => {
 
-  const { loadPizza, addCart } = useContext(DataContext);
+  const { loadPizza, addItemCart, upperLetter } = useContext(DataContext);
 
   const navigate = useNavigate();
 
-  const upperLetter = (name) => {
-    return name.charAt(0).toUpperCase() + name.slice(1);
-  };
+
 
   return (
     <>
@@ -34,7 +32,6 @@ const Home = () => {
                   <Card.Body>
                     <Card.Title>{upperLetter(pizza.name)} {pizza.id} </Card.Title>
                     <hr />
-                    
                       Ingredientes:
                       <ul>
                         {pizza.ingredients.map((ingredient, index) => (
@@ -56,7 +53,7 @@ const Home = () => {
                       </Button>
                       <Button
                         variant="danger"
-                        onClick={() => addCart(pizza)}
+                        onClick={() => addItemCart(pizza)}
                       >
                         Añadir 🛒
                       </Button>

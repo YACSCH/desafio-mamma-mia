@@ -11,15 +11,12 @@ import Container from "react-bootstrap/Container";
 import { DataContext } from "../context/DataContext";
 
 const PizzaDetails = () => {
-  const { loadPizza, addCart } = useContext(DataContext);
+  const { loadPizza, addItemCart, upperLetter } = useContext(DataContext);
 
   const { id } = useParams();
 
   const navigate = useNavigate();
 
-  const upperLetter = (name) => {
-    return name.charAt(0).toUpperCase() + name.slice(1);
-  };
 
   const selectPizza = loadPizza.find((p) => p.id === id);
 
@@ -55,7 +52,7 @@ const PizzaDetails = () => {
                   <h2 >
                     Precio $ {selectPizza.price.toLocaleString("es-CL")}
                   </h2>
-                  <Button  variant="danger" onClick={() => addCart(selectPizza)}>
+                  <Button  variant="danger" onClick={() => addItemCart(selectPizza)}>
                     Añadir 🛒
                   </Button>
                 </div>

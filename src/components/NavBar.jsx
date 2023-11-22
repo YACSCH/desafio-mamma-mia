@@ -11,7 +11,7 @@ const NavBar = () => {
     return (
         <nav className="nav">
         <div className="nav-title">
-          <Link  to="/home"><h2>🍕 Pizzería MammaMia!!</h2></Link>
+          <Link  to="/home"><h2>🍕 Pizzería Mamma-Mia!!</h2></Link>
         </div>
         <div className="nav-cart">
           <Link  to="/carrito"><span>🛒 </span></Link>
