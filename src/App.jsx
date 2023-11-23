@@ -7,6 +7,7 @@ import Navbar from "./components/NavBar";
 import Carrito from "./views/Carrito";
 import Home from "./views/Home";
 import PizzaDetails from "./views/PizzaDetails";
+import NotFound from "./views/NotFound";
 
 
 import "./App.css";
@@ -22,6 +23,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/pizza/:id" element={<PizzaDetails />} />
           <Route path="/carrito" element={<Carrito />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </DataProvider>
     </>
