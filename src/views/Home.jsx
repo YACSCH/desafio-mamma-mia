@@ -19,7 +19,7 @@ const Home = () => {
   
   const addCart = (pizza) => {
 
-    toast.success('🍕Pizza Agregada al carrito!', {
+    toast.success('🍕Pizza Agregada!!!', {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
