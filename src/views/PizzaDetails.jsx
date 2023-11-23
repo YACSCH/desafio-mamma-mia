@@ -25,7 +25,7 @@ const PizzaDetails = () => {
   const addCart = (pizza) => {
 
     toast.success('🍕Pizza Agregada!!!', {
-      position: "top-right",
+      position: "bottom-right",
       autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
