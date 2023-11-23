@@ -20,11 +20,11 @@ const Home = () => {
 
   return (
     <>
-      <div className="home">
+      <div>
         <Header />
 
         <div className="container">
-          <Row className="home-row">
+        <Row>
             {loadPizza.map((pizza) => (
               <Col md={3} key={pizza.id}>
                 <Card className="card-home">
@@ -61,8 +61,8 @@ const Home = () => {
                   </Card.Footer>
                 </Card>
               </Col>
-            ))}
-          </Row>
+              ))}
+            </Row>
         </div>
       </div>
     </>
