@@ -9,12 +9,12 @@ const NavBar = () => {
     const { totalAcum } = useContext(DataContext);
 
     return (
-        <nav className="nav">
-        <div className="nav-title">
+        <nav className='d-flex justify-content-around bg-info text-white p-2 shadow-lg'>
+        <div className='nav-title'>
           <Link  to="/home"><h2>🍕 Pizzería Mamma-Mia!!</h2></Link>
         </div>
-        <div className="nav-cart">
-          <Link  to="/carrito"><span>🛒 </span></Link>
+        <div className='d-flex gap-4 text-decoration-none'>
+          <Link  to="/carrito"><span className='text-white'> 🛒 </span></Link>
           <h2>$ {totalAcum.toLocaleString("es-CL")}</h2></div>
       </nav>
     )

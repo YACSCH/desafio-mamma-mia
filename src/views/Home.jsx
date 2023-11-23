@@ -40,11 +40,11 @@ const Home = () => {
                       </ul>
                    
                   </Card.Body>
-                  <Card.Footer className="card-footer bg-transparent">
-                    <h2 className="home-price">
+                  <Card.Footer className="bg-transparent">
+                    <h2 className='text-center'>
                       $ {pizza.price.toLocaleString("es-CL")}
                     </h2>
-                    <div className="home-button">
+                    <div className='d-flex justify-content-between gap-4'>
                       <Button
                         variant="info"
                         onClick={() => navigate(`/pizza/${pizza.id}`)}

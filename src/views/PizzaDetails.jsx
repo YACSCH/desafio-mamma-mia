@@ -48,7 +48,7 @@ const PizzaDetails = () => {
                   ))}
                 </ul>
                 <hr />
-                <div className="card-buttons-detail">
+                <div className="d-flex justify-content-between">
                   <h2 >
                     Precio $ {selectPizza.price.toLocaleString("es-CL")}
                   </h2>
