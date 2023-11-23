@@ -38,7 +38,6 @@ const Home = () => {
                           <li key={index}>🍕 {upperLetter(ingredient)}</li>
                         ))}
                       </ul>
-                   
                   </Card.Body>
                   <Card.Footer className="bg-transparent">
                     <h2 className='text-center'>
