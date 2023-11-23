@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-
 import { useParams, useNavigate } from "react-router-dom";
+import { DataContext } from "../context/DataContext";
+
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -8,7 +9,8 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
-import { DataContext } from "../context/DataContext";
+
+import { ToastContainer, toast } from 'react-toastify';
 
 const PizzaDetails = () => {
   const { loadPizza, addItemCart, upperLetter } = useContext(DataContext);
@@ -19,6 +21,23 @@ const PizzaDetails = () => {
 
 
   const selectPizza = loadPizza.find((p) => p.id === id);
+
+  const addCart = (pizza) => {
+
+    toast.success('🍕Pizza Agregada al carrito!', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+
+    addItemCart(pizza)
+
+  }
 
   return (
     <Container className="mt-3">
@@ -52,7 +71,7 @@ const PizzaDetails = () => {
                   <h2 >
                     Precio $ {selectPizza.price.toLocaleString("es-CL")}
                   </h2>
-                  <Button  variant="danger" onClick={() => addItemCart(selectPizza)}>
+                  <Button  variant="danger" onClick={() => addCart(selectPizza)}>
                     Añadir 🛒
                   </Button>
                 </div>
@@ -60,6 +79,7 @@ const PizzaDetails = () => {
             </Card.Body>
           </Card>
         </Col>
+        <ToastContainer />
       </Row>
       <Button variant="success" className='mt-4' onClick={() => navigate(`/home`)}> ◀︎ Volver</Button>
     </Container>

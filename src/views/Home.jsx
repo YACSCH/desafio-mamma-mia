@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
+import { DataContext } from "../context/DataContext";
 
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
-
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-import { DataContext } from "../context/DataContext";
+import { ToastContainer, toast } from 'react-toastify';
 
 const Home = () => {
 
@@ -16,8 +16,23 @@ const Home = () => {
 
   const navigate = useNavigate();
 
+  
+  const addCart = (pizza) => {
 
+    toast.success('🍕Pizza Agregada al carrito!', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
 
+    addItemCart(pizza)
+
+  }
   return (
     <>
       <div>
@@ -52,10 +67,11 @@ const Home = () => {
                       </Button>
                       <Button
                         variant="danger"
-                        onClick={() => addItemCart(pizza)}
+                        onClick={() => addCart(pizza)}
                       >
                         Añadir 🛒
                       </Button>
+                      
                     </div>
                   </Card.Footer>
                 </Card>
@@ -63,6 +79,7 @@ const Home = () => {
               ))}
             </Row>
         </div>
+        <ToastContainer />
       </div>
     </>
   );
