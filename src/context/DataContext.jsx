@@ -57,6 +57,11 @@ const DataProvider = ({ children }) => {
     (total, pizza) => total + pizza.price * pizza.quantity,
     0
   );
+
+  const totalQuantity = cart.reduce(
+    (total, pizza) => total + pizza.quantity,
+    0
+  );
   const upperLetter = (name) => {
     return name.charAt(0).toUpperCase() + name.slice(1);
   };
@@ -74,6 +79,7 @@ const DataProvider = ({ children }) => {
         addItemCart,
         removeItemCart,
         upperLetter,
+        totalQuantity,
       }}
     >
       {children}
